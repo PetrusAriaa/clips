@@ -15,6 +15,30 @@
     (printout t crlf "=== KESIMPULAN KONDISI IKAN ===" crlf)
 )
 
+(defrule ikanNila
+    (ikan N) =>
+    (printout t "Bagaimana kondisi tubuh ikan? [1: Bercak putih, 2: Bercak merah, 3: Kehitaman]: ")
+    (assert (kulit (read)))
+    (printout t "Bagaimana kondisi mata ikan? [1: normal, 2: bengkak]: ")
+    (assert (mata (read)))
+    (printout t "Bagaimana aktivitas atau gerakan ikan? [1: normal, 2: malas/bergerak lambat]: ")
+    (assert (gerakan (read)))
+    (printout t crlf "=== KESIMPULAN KONDISI IKAN ===" crlf)
+)
+
+(defrule ikanGurame
+    (ikan G) =>
+    (printout t "Bagaimana kondisi tubuh ikan? [1: Bercak putih, 2: Bercak merah, 3: bentol]: ")
+    (assert (kulit (read)))
+    (printout t "Bagaimana kondisi mata ikan? [1: normal, 2: berkabut]: ")
+    (assert (mata (read)))
+    (printout t "Bagaimana aktivitas atau gerakan ikan? [1: normal, 2: malas/bergerak lambat]: ")
+    (assert (gerakan (read)))
+    (printout t crlf "=== KESIMPULAN KONDISI IKAN ===" crlf)
+)
+
+
+; DIAGNOSE SYMPTOMS
 (defrule saprolegniasis
     (and (ikan M)
     (kulit 1)
@@ -34,19 +58,7 @@
 
 ;TODO: bikin ikanMas -> aeromonas
 
-(defrule ikanNila
-    (ikan N) =>
-    (printout t "Bagaimana kondisi tubuh ikan? [1: Bercak putih, 2: Bercak merah, 3: Kehitaman]: ")
-    (assert (kulit (read)))
-    (printout t "Bagaimana kondisi mata ikan? [1: normal, 2: bengkak]: ")
-    (assert (mata (read)))
-    (printout t "Bagaimana aktivitas atau gerakan ikan? [1: normal, 2: malas/bergerak lambat]: ")
-    (assert (gerakan (read)))
-    (printout t crlf "=== KESIMPULAN KONDISI IKAN ===" crlf)
-)
 
-(defrule ikanGurame
-    (ikan G) =>
-    (printout t "Ikan Gurame" crlf)
-)
+
+
 
