@@ -9,15 +9,14 @@
 (defrule parentRule
     (or (father ?x ?y) (mother ?x ?y)) =>
     (assert (parent ?x ?y))
-    (assert (child ?y ?x))
 )
 
 (defrule grandParentRule
-    (and (parent ?x ?z) (parent ?z ?y)) =>
-    (assert (grandparent ?x ?y))
+    (and (parent ?x ?y) (parent ?y ?z)) =>
+    (assert (grandparent ?x ?z))
 )
 
-(defrule parentInLaw
-    (and (parent ?x ?y) (father ?y ?z) (mother ?m ?z)) =>
-    (assert (parentInLaw ?x ?m))
+(defrule grandfather
+    (and (father ?x ?y) (parent ?y ?z)) =>
+    (assert (grandfather ?x ?z))
 )
