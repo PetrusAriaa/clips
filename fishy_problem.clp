@@ -68,7 +68,7 @@
 
 (defrule luka
     (
-        and (kulit 2) (ikan M|N|G) (gerakan 1) (mata 1)
+        and (kulit 2) (ikan M|N|G) (gerakan 1|2) (mata 1)
     ) =>
     (assert (diagnosis luka))
     (printout t "Ikan kemungkinan hanya terluka" crlf)
@@ -82,4 +82,10 @@
     (printout t "Ikan terindikasi terjangkit TiLV" crlf)
 )
 
-
+(defrule undefined
+    (
+        and (ikan M|N|G) (not (diagnosis saprolegniasis|luka|aeromonas|TiLV|whiteSpot))
+    ) =>
+    (assert (diagnosis undefined))
+    (printout t "Maaf sistem kami belum dapat memberikan diagnosa" crlf)
+)
